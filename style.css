@@ -1,0 +1,51 @@
+/* Déneigeur : interface (palette commune --ui-*, accent vert de la catégorie loisirs) */
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { height: 100%; margin: 0; overflow: hidden; background: var(--ui-bg); }
+body { color: var(--ui-text); font: 15px/1.45 var(--ui-font); user-select: none; -webkit-user-select: none; }
+#gl { position: fixed; inset: 0; width: 100%; height: 100%; display: block; outline: none; touch-action: none; }
+.panel { background: rgba(15, 15, 19, .72); border: 1px solid var(--ui-border); border-radius: var(--ui-radius-sm); backdrop-filter: blur(8px); }
+#hud { position: fixed; inset: 0; pointer-events: none; }
+
+/* Écrans (#screen) : titre, tableau des contrats, bilan, garage, carte, pause. Cadre et boutons : .hk-card / .hk-btn de game-menu.css */
+#screen { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 16px; overflow: auto; }
+#screen .menu { width: min(460px, 100%); display: flex; flex-direction: column; }
+#screen .menu.wide { width: min(720px, 100%); }
+#screen h2 { margin: 0 0 6px; font-size: 1.4rem; }
+#screen .hk-btn small { display: block; font-weight: 400; color: var(--ui-muted); font-size: 12px; }
+.lede { margin: 0 0 10px; color: var(--ui-muted); } .lede b { color: var(--ui-text); }
+.hint { margin: 8px 0 0; font-size: 13px; color: var(--ui-muted); }
+.bulletin { padding: 10px 12px; border-radius: var(--ui-radius-sm); background: var(--ui-surface-2); border: 1px solid var(--ui-border); font-size: 14px; }
+.bulletin b { color: var(--ui-accent); margin-right: 6px; }
+.rows { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+.rows .row, .rows .item { display: flex; align-items: center; justify-content: space-between; gap: 12px; text-align: left; margin: 0; }
+.rows .item { padding: 8px 12px; border-radius: var(--ui-radius-sm); background: var(--ui-surface-2); border: 1px solid var(--ui-border); }
+.rows .item .hk-btn { margin: 0; flex: none; }
+.rows span small { display: block; color: var(--ui-muted); font-size: 12px; font-weight: 400; }
+.rows em { font-style: normal; font-weight: 700; color: var(--ui-text); white-space: nowrap; }
+.rows .row.on { border-color: var(--ui-accent) !important; background-color: var(--ui-accent-soft) !important; }
+.rows .row.on em::before { content: '✓ '; color: var(--ui-accent); }
+.hk-btn:disabled { opacity: .45; cursor: default; }
+.hk-btn:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 2px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.tabs .tab { margin: 0; min-height: 36px; padding: 6px 12px !important; border-radius: 999px !important; }
+.tabs .tab.on { background-color: var(--ui-accent) !important; border-color: var(--ui-accent) !important; color: #04130a !important; }
+table.report { width: 100%; border-collapse: collapse; font-size: 14px; }
+.report th, .report td { padding: 6px 8px; border-bottom: 1px solid var(--ui-border); text-align: right; }
+.report th:first-child, .report td:first-child { text-align: left; }
+.report th { color: var(--ui-muted); font-weight: 600; }
+.report tr.fail td { color: var(--ui-danger); }
+canvas.map { width: 100%; max-width: 520px; aspect-ratio: 1; align-self: center; border-radius: var(--ui-radius-sm); border: 1px solid var(--ui-border); }
+
+/* HUD de la nuit */
+.hud-box { position: absolute; top: max(12px, env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); width: 230px; padding: 10px 12px; display: grid; gap: 4px; font-size: 13px; }
+.hud-box .clock { display: flex; align-items: baseline; justify-content: space-between; }
+.hud-box .clock b { font: 700 1.5rem var(--ui-mono); } .hud-box small { color: var(--ui-muted); }
+.hud-box .bar { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 8px; }
+.hud-box .bar i { height: 6px; border-radius: 3px; background: var(--ui-surface-3); overflow: hidden; }
+.hud-box .bar u { display: block; height: 100%; background: var(--ui-accent); transition: width .1s linear; }
+.hud-box .bar u.low { background: var(--ui-danger); }
+.hud-box .near { padding-top: 4px; border-top: 1px solid var(--ui-border); }
+.hud-box .pen b { color: var(--ui-danger); }
+.toast { position: absolute; left: 50%; bottom: 14vh; transform: translateX(-50%); padding: 8px 14px; border-radius: var(--ui-radius-sm); background: rgba(15, 15, 19, .82); border: 1px solid var(--ui-warn); color: var(--ui-text); font-weight: 600; font-size: 14px; white-space: nowrap; }
+@media (max-width: 560px) { .hud-box { width: 180px; font-size: 12px; } .hud-box .clock b { font-size: 1.2rem; } .toast { white-space: normal; width: calc(100% - 32px); text-align: center; } }

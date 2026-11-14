@@ -1,3 +1,33 @@
-<!doctype html>
-<meta charset="utf-8">
-<script src="assets/site.js" data-project="loisirs/deneigeur/index.html"></script>
+<!DOCTYPE html>
+<html class="sim" lang="fr" data-cat="loisirs" data-guide="1" data-hk-skip="map" data-hk-menu="#screen" data-lod="1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Déneigeur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/theme.css" />
+  <link rel="stylesheet" href="./assets/simulateur.css" />
+  <script src="./assets/loader.js" data-name="Déneigeur" data-driving="deneigeur" data-description="Déneige un quartier de montagne la nuit : pelle, fraise à neige et quad, contrats de particuliers et de commerces, garage et réputation." data-controls="# Touches de base|Z Q S D / flèches : se déplacer, conduire|Souris : regarder et viser|C : changer de vue|M : carte du quartier, choix de la zone guidée|R : replacer|L : phares|F : monter ou descendre d’un véhicule|Échap ou Tab : pause (reprendre, finir la nuit)|Clic : capturer la souris|# À la pelle|Maj : courir|Clic gauche : jeter la neige|Clic droit : lever ou baisser la pelle|X : épandre du sel|# À la fraise|Z / S : avancer, reculer|Q / D : tourner|A / E : orienter la goulotte|Espace : embrayer ou débrayer la turbine (réembrayer après un calage, en reculant d'abord)|J : verser le jerrican du pick-up (à portée des deux)|# Au quad|Espace : frein à main|T / G : monter ou baisser la lame|A / E : orienter la lame|Manette : stick gauche marche ou direction · stick droit caméra et visée · RT accélérer · LT freiner · A frein à main, turbine de la fraise (Espace) · RB lancer la pelletée · LB lever ou baisser la pelle · B monter ou descendre (F) · Y vue (C) · X replacer (R) · Start pause · Back carte (M) · croix haut / bas lame (T / G) · croix gauche / droite orientation lame ou goulotte (A / E) · clic stick gauche sel (X) · clic stick droit jerrican (J)" data-preload="../../assets/models/stylized_low_poly_animated_character.glb|../../assets/models/npc/car-compact.glb|../../assets/models/npc/car-hatchback.glb|../../assets/models/npc/car-sedan.glb|../../assets/models/npc/car-suv.glb|../../assets/models/npc/car-wagon.glb|../../assets/models/npc/car-minivan.glb|../../assets/models/npc/car-pickup.glb|../../assets/models/snowblower.glb|../../assets/models/quad-raptor.glb"></script>
+  <script src="./assets/driving-base.js"></script>
+  <script src="./assets/site.js" data-project="loisirs/deneigeur/index.html"></script>
+  <script src="./assets/gamepad.js" data-profile="none"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module">import { patch } from './assets/perf.js'; import * as T from 'three'; patch(T);</script>
+</head>
+<body>
+  <canvas id="gl" tabindex="0" aria-label="Jeu de déneigement en 3D"></canvas>
+  <div id="hud" hidden></div>
+  <div id="screen" class="hk-scrim" hidden></div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
