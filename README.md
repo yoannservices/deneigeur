@@ -1,6 +1,6 @@
 # Déneigeur
 
-Déneige un quartier de montagne la nuit : pelle, fraise à neige et quad. Spécification : `../DENEIGEUR-CONCEPTION.md`.
+Déneige un quartier de montagne la nuit : pelle, fraise à neige et quad. Spécification : `docs/conception.md`.
 
 État : terminé (tâches 1 à 14). Quartier enneigé, joueur à pied à la pelle, pick-up du dépôt, fraise à neige et quad à lame, nuit complète (bulletin, événements, contrats), tableau des contrats, bilan, garage, carte et sauvegarde. Three.js r186 par import map, modules ES, sans build.
 
